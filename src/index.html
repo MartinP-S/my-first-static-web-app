@@ -12,4 +12,10 @@
     <p>Loading message from the API: <b id="name">...</b></p>
     <app-root></app-root>
   </body>
+  <script>
+    (async function () {
+      let { text } = await (await fetch('/api/GetMessage')).json();
+      document.querySelector('#name').textContent = text;
+    })();
+  </script>
 </html>
